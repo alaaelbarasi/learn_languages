@@ -22,12 +22,16 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Container(
             height: size.height / 1.2,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: NetworkImage("https://picsum.photos/250?image=9"),
-                    fit: BoxFit.cover),
-                color: Colors.deepPurpleAccent,
-                borderRadius: BorderRadius.only(
+                  image:
+                      const NetworkImage("https://picsum.photos/250?image=9"),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(0.3), BlendMode.dstATop),
+                ),
+                color: const Color(0xffb4f0fea),
+                borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(150),
                 )),
           ),

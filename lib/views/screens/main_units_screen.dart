@@ -11,6 +11,10 @@ class MainUnitScreen extends StatefulWidget {
 }
 
 class _MainUnitScreenState extends State<MainUnitScreen> {
+  final _colors = const [
+    Color(0xffb4f0fea),
+    Color(0xffbb862eb),
+  ];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -22,9 +26,15 @@ class _MainUnitScreenState extends State<MainUnitScreen> {
           Container(
             width: double.infinity,
             height: size.height / 3.5,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: const NetworkImage("https://picsum.photos/250?image=9"),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.3), BlendMode.dstATop),
+              ),
               color: Colors.deepPurpleAccent,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(70),
               ),
             ),
@@ -52,6 +62,9 @@ class _MainUnitScreenState extends State<MainUnitScreen> {
               child: Padding(
             padding: const EdgeInsets.only(left: 40, right: 40),
             child: ListView.builder(
+                padding: const EdgeInsets.only(top: 50, bottom: 12),
+                itemExtent: 75,
+                shrinkWrap: true,
                 itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
@@ -66,14 +79,15 @@ class _MainUnitScreenState extends State<MainUnitScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      color: const Color(0xffbb862eb),
+                      // color: const Color(0xffbb862eb),
+                      color: _colors[index % 2],
                       child: ListTile(
                         trailing: const Icon(
                           Icons.circle_outlined,
                           size: 30,
                         ),
                         title: Text(
-                          "Unit $index",
+                          "Unit ${index + 1}",
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
