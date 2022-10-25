@@ -33,7 +33,7 @@ class _MainUnitScreenState extends State<MainUnitScreen> {
                 colorFilter: ColorFilter.mode(
                     Colors.black.withOpacity(0.3), BlendMode.dstATop),
               ),
-              color: Colors.deepPurpleAccent,
+              color: Color(0xffb4f0fea),
               borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(70),
               ),
